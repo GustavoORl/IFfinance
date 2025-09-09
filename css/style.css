@@ -17,6 +17,7 @@ body > header .wrapper{
    display: flex;
    justify-content: space-between;
    align-items: center;
+   height: 100%;
 }
 
 header nav ul{
@@ -37,6 +38,17 @@ header nav ul li a:hover, .active{
     border-bottom: 2px solid #ec7b11;
     color: #ec7b11;
 }
+
+header nav ul li button{
+    background: #ec7b11;
+    color: #FFF;
+    border-radius: 15px;
+    padding: 10px 15px;
+    border: none;
+    margin: 0 0 0 15px;
+    cursor: pointer;
+}
+
 
 
 /* header nav{
@@ -74,6 +86,7 @@ body > footer {
     width: 245px;
     background-color: #002b65;
     padding: 20px;
+    border-radius: 15px;
 }
 
 .card-stock header{
@@ -108,4 +121,58 @@ body > footer {
 
 main {
     margin: 20px 0;
+}
+
+.modal{
+    background-color: #242424c3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal main{
+    background-color: #f2f2f2;
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+
+.modal main h1{
+    color: black;
+    margin: 0;
+}
+
+.modal main form{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0 0 0;
+}
+
+.modal main form input[type="text"], .modal main form select{
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+
+.modal main form input[type="submit"], .modal main button{
+    background: #ec7b11;
+    color: #FFF;
+    border-radius: 15px;
+    padding: 10px 15px;
+    border: none;
+    margin: 20px 0 0 0;
+    cursor: pointer;
+}
+
+#cards{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }

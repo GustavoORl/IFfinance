@@ -24,6 +24,7 @@
                     <li><a href="./index.html" class="active">Home</a></li>
                     <li><a href="./quemsomos.html">Quem Somos</a></li>
                     <li><a href="./contato.html">Contato</a></li>
+                    <li><button onclick="openModal()">Adicionar</button></li>
                 </ul>
             </nav>
         </div>
@@ -102,7 +103,30 @@
         </div>
     </footer>
 
+     <div class="modal">
+        <main>
 
+            <h1>Cadastrar</h1>
+            <form onsubmit="addTicker(event)">
+                <label for="ticker">Ticker:</label>
+                <input type="text" id="ticker" name="ticker">
+                <label for="bolsa">Bolsa:</label>
+                    <select id="bolsa" name="bolsa">
+                        <option value="Nasdaq">Nasdaq</option>
+                        <option value="NYSE">NYSE</option>
+                    </select>
+                <label for="valor">Valor:</label>
+                <input type="text" id="valor" name="valor">
+                <label for="ativos">Ativos:</label>
+                <input type="text" id="ativos" name="ativos">
+                <input type="submit" value="Cadastrar">
+                <button type="button" onclick="closeModal()">Fechar</button>
+            </form>
+
+        </main>
+    </div>
+
+ <script src="./js/main.js"></script>
 </body>
 
 </html>
