@@ -35,12 +35,12 @@ header nav ul li a{
 }
 
 header nav ul li a:hover, .active{
-    border-bottom: 2px solid #ec7b11;
-    color: #ec7b11;
+    border-bottom: 2px solid #ff6600;
+    color: #ff6600;
 }
 
 header nav ul li button{
-    background: #ec7b11;
+    background: #ff6600;
     color: #FFF;
     border-radius: 15px;
     padding: 10px 15px;
@@ -83,6 +83,7 @@ body > footer {
 }
 
 .card-stock{
+    position: relative;
     width: 245px;
     background-color: #002b65;
     padding: 20px;
@@ -160,8 +161,8 @@ main {
     border: 1px solid #000;
 }
 
-.modal main form input[type="submit"], .modal main button{
-    background: #ec7b11;
+.modal main form input[type="submit"], button{
+    background: #ff6600;
     color: #FFF;
     border-radius: 15px;
     padding: 10px 15px;
@@ -175,4 +176,23 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+.buttons{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #1d1d1d9c;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    display: none;
+}
+
+.buttons button{
+    margin: 0;
 }

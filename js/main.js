@@ -1,3 +1,5 @@
+// banco de dados, ("crude") → Create Read Update Delete
+
 function openModal(){
     const modal = document.querySelector(".modal")
     modal.style.display = "flex"
@@ -21,7 +23,7 @@ function addTicker(event){
     const total = valor * ativos
 // crase ( `) é chamada de template string
     const card = `
-        <div class="card-stock">
+        <div class="card-stock" onmouseenter="showButtons(event)" onmouseleave="hiddenButtons(event)">
             <header>
                 <h2>${ticker}</h2>
                 <h3>${bolsa}</h3>
@@ -33,9 +35,32 @@ function addTicker(event){
                 <span>Ativos: <span>${ativos}</span></span>
                 <span>US$ ${total}</span>
             </footer>
+            <div class="buttons">
+                <button type="button" onclick="editar()">Editar</button>
+                <button type="button" onclick="excluir()">Excluir</button>
+            </div>
         </div>
     `
     const cards = document.querySelector("#cards")
     cards.innerHTML += card
     closeModal()
 }
+
+function showButtons(event) {
+
+    const buttons = event.target.querySelector(".buttons")
+
+    buttons.style.display = "flex"
+
+
+}
+
+function hiddenButtons(event) {
+
+    const buttons = event.target.querySelector(".buttons")
+
+    buttons.style.display = "none"
+
+
+}
+
