@@ -74,7 +74,7 @@ body > div.wrapper > div > main {
     min-height: calc(100vh - 210px);
 }
 body > footer {
-    height: 120px;
+    height: 100px;
     background-color: #002b65;
 }
 .wrapper{
