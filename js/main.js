@@ -33,7 +33,7 @@ function addTicker(event){
             </main>
             <footer>
                 <span>Ativos: <span>${ativos}</span></span>
-                <span>US$ ${total}</span>
+                <span class="total">US$ <span> ${total}</span></span>
             </footer>
             <div class="buttons">
                 <button type="button" onclick="openEditCard(event)">Editar</button>
@@ -43,25 +43,31 @@ function addTicker(event){
     `
     const cards = document.querySelector("#cards")
     cards.innerHTML += card
+
+    event.target.reset()
+
     closeModal('#add')
 }
 
 function showButtons(event) {
 
-    const buttons = event.target.querySelector(".buttons") //queryslector busca descendente do elemento pai
+    const cardStock = event.target
+    const buttons = cardStock.querySelector(".buttons") //queryslector busca descendente do elemento pai
     buttons.style.display = "flex"
 }
 
 function hiddenButtons(event) {
 
-    const buttons = event.target.querySelector(".buttons")
+    const cardStock = event.target
+    const buttons = cardStock.querySelector(".buttons")
     buttons.style.display = "none"
 }
 
 function deleteCard(event){
-
-    const cardStock = event.target.closest(".card-stock") //closest é uma função que busca por elementos ascendentes e com o seletor que você especificar no atributo dele
-    cardStock.remove(event)
+    
+    const buttonDelete = event.target
+    const cardStock = buttonDelete.closest(".card-stock") //closest é uma função que busca por elementos ascendentes e com o seletor que você especificar no atributo dele
+    cardStock.remove()
 }
 
 function openEditCard(event) {
@@ -73,13 +79,14 @@ function openEditCard(event) {
     const inputEditTicker = document.getElementById('editticker')
     inputEditTicker.value = ticker
 
+    const idCard = cardStock.getAttribute('id')
+    //cardStock.setAttribute("teste", "123") //exemplo de setAttribute
     const inputIdCard = document.getElementById('idcard')
-    inputIdCard.value
+    inputIdCard.value = idCard
 
     const bolsa = cardStock.querySelector('header h3').innerText
     const selectEditBolsa = document.getElementById('editbolsa')
-    const option = selectEditBolsa.querySelector(`option[value=${bolsa}]`)
-    option.setAttribute('selected', true)
+    selectEditBolsa.value = bolsa
 
     const valor = cardStock.querySelector('main span span').innerText
     const inputEditValor = document.getElementById('editvalor')
@@ -110,6 +117,18 @@ function editTicker(event){
     
     const h2ticker = cardStockEdit.querySelector('header h2')
     h2ticker.innerText = ticker
+
+    const h3Bolsa = cardStockEdit.querySelector('header h3')
+    h3Bolsa.innerText = bolsa
+
+    const spanValor = cardStockEdit.querySelector('main span span')
+    spanValor.innerText = valor
+
+    const spanAtivos = cardStockEdit.querySelector('footer span span')
+    spanAtivos.innerText = ativos
+    
+    const spanTotal = cardStockEdit.querySelector('footer span.total span')
+    spanTotal.innerText = total
    
     closeModal('#edit')
 }
